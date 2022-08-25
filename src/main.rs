@@ -31,7 +31,7 @@ fn get_sn_code() -> String {
 }
 
 fn match_sn_code(command_output: String) -> String {
-    let re = Regex::new(r"(\S{10})").unwrap();
+    let re = Regex::new(r"(\S+)").unwrap();
     for (n, sn) in re.captures_iter(&command_output).enumerate() {
         if n == 1 {
             return sn.get(1).unwrap().as_str().to_string();
